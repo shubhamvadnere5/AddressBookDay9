@@ -13,10 +13,11 @@ namespace AddressBook_day9
     {
         public List<Contacts> personDetails = new List<Contacts>();
 
-        private void AddingPerson()
+        public void AddingPerson()
         {
             Console.WriteLine("first name");
             string first_name = Console.ReadLine();
+            
             Console.WriteLine("last name");
             string last_name = Console.ReadLine();
 
@@ -43,7 +44,7 @@ namespace AddressBook_day9
             Print(person);
 
         }
-        private void Print(Contacts Person)
+        public void Print(Contacts Person)
         {
             Console.WriteLine("Address Book Details");
             Console.WriteLine("First Name:" + Person.firstName);
