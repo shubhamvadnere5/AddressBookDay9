@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Addingnewcontact.cs" />
+    <Compile Include="EditContact.cs" />
     <Compile Include="Contacts.cs" />
+    <Compile Include="Mainmethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
