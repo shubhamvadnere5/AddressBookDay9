@@ -30,11 +30,13 @@ namespace AddressBook_day9
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to Address Book Program");
-            Console.ReadLine();
-        }
     }
 }
+
+//        static void Main(string[] args)
+//        {
+//            Console.WriteLine("Welcome to Address Book Program");
+//            Console.ReadLine();
+//        }
+//    }
+//}
