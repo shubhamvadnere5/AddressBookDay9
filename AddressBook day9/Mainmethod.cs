@@ -10,12 +10,16 @@ namespace AddressBook_day9
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("---Welcome to your Address Book--");
+            Console.WriteLine("Welcome to your Address Book");
             //creating object person1 of AddressBook Class()
             EditContact person1 = new EditContact();
             while (true)
             {
-                Console.WriteLine("Choose one operation to perform:\n 1-Add a Contact \n 2-Edit a existing contact \n 3-View Address book contacts \n 4-Exit from the Addressbook");
+                Console.WriteLine("Choose one operation to perform");
+                Console.WriteLine("1- Add the Contacts");
+                Console.WriteLine("2- Edit the existing person Contact");
+                Console.WriteLine("3- View the Addressbook");
+                Console.WriteLine("4- Exit the Addressbook");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
