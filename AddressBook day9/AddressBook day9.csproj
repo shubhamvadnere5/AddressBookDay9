@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditContact.cs" />
+    <Compile Include="DeleteContact.cs" />
     <Compile Include="Contacts.cs" />
     <Compile Include="Mainmethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace AddressBook_day9
 {
     /// <summary>
-    /// UC3 Edit contact
+    /// UC4 Delete contact
     /// </summary>
-    class EditContact
+    class DeleteContact
     {
-        public List<Contacts> personDetails = new List<Contacts>();
+        public List<Contacts> personDetails = new List<Contacts>(); //create list of contacts
 
         public void AddingPerson()
         {
@@ -56,7 +56,7 @@ namespace AddressBook_day9
             Console.WriteLine("Phonenumber:" + Person.phoneNumber);
             Console.WriteLine("Email:" + Person.email);
         }
-        public void Edit()
+        public void Edit() 
         {
             if (personDetails.Count != 0) // to check whether the data (number of rows) is present or not in object
             {
@@ -127,10 +127,27 @@ namespace AddressBook_day9
             {
                 Console.WriteLine("Your address book is empty");
             }
-
         }
-        
-        
+            public void Delete()
+            {
+                
+                    Console.WriteLine("Enter the name of person to Delete:"); // insert that value for which we wanted to do delete
+                    string delete = Console.ReadLine();
+
+
+                    foreach (var person in personDetails.ToList())
+                    {
+                        if (person.firstName.ToUpper() == delete.ToUpper())
+                        {   
+                            
+                         personDetails.Remove(person);
+                        Console.WriteLine("Contact is Deleted");
+                        }
+
+                    }
+                
+
+            }  
     }
 }
 

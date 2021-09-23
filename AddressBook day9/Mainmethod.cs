@@ -12,14 +12,15 @@ namespace AddressBook_day9
         {
             Console.WriteLine("Welcome to your Address Book");
             //creating object person1 of AddressBook Class()
-            EditContact person1 = new EditContact();
+            DeleteContact person1 = new DeleteContact();
             while (true)
             {
                 Console.WriteLine("Choose one operation to perform");
                 Console.WriteLine("1- Add the Contacts");
                 Console.WriteLine("2- Edit the existing person Contact");
-                Console.WriteLine("3- View the Addressbook");
-                Console.WriteLine("4- Exit the Addressbook");
+                Console.WriteLine("3- Delete the person contact");
+                Console.WriteLine("4- View the Addressbook");
+                Console.WriteLine("5- Exit the Addressbook");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -29,7 +30,10 @@ namespace AddressBook_day9
                         break;
                     case 2:
                         person1.Edit();
-                        break; 
+                        break;
+                    case 3:
+                        person1.Delete();
+                        break;
                     default:
                         Console.WriteLine("Please enter a valid input");
                         break;
