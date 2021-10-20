@@ -9,37 +9,39 @@ namespace AddressBook_day9
     class Mainmethod
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to your Address Book");
-            //creating object person1 of AddressBook Class()
-            DeleteContact person1 = new DeleteContact();
-            while (true)
             {
-                Console.WriteLine("Choose one operation to perform");
-                Console.WriteLine("1- Add the Contacts");
-                Console.WriteLine("2- Edit the existing person Contact");
-                Console.WriteLine("3- Delete the person contact");
-                Console.WriteLine("4- View the Addressbook");
-                Console.WriteLine("5- Exit the Addressbook");
-                int option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
+                Console.WriteLine("---Welcome to your Address Book--");
+                //creating object person1 of AddressBook Class()
+                AddressBook person1 = new AddressBook();
+                while (true)
                 {
-                    case 1:
-                        person1.AddingPerson();
-                        Console.WriteLine("Enter any key to exit");
-                        break;
-                    case 2:
-                        person1.Edit();
-                        break;
-                    case 3:
-                        person1.Delete();
-                        break;
-                    default:
-                        Console.WriteLine("Please enter a valid input");
-                        break;
+                    Console.WriteLine("Choose one operation to perform:\n 1-Add a Contact \n 2-Edit a existing contact \n 3-View Address book contacts \n 4-Delete existing contact \n 5-Exit from the Addressbook");
+                    int option = Convert.ToInt32(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            person1.AddPerson();
+                            Console.WriteLine("Enter any key to exit");
+                            break;
+                        case 2:
+                            person1.Edit();
+                            break;
+                        case 3:
+                            person1.Print();
+                            Console.WriteLine("Enter any key to exit");
+                            break;
+                        case 4:
+                            person1.Delete();
+                            Console.WriteLine("Enter any key to exit");
+                            break;
+                        case 5:
+                            return;
+                        default:
+                            Console.WriteLine("Please enter a valid input");
+                            break;
+                    }
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
             }
         }
     }
-}

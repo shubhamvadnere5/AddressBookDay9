@@ -19,6 +19,11 @@ namespace AddressBook_day9
         public string zip;
         public int phoneNumber;
         public string email;
+
+        public Contacts()
+        {
+        }
+
         public Contacts(string firstName, string lastName, string address, string city, string state, string zip, int phoneNumber, string email)
         {
             this.firstName = firstName;
