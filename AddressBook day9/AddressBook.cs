@@ -1,13 +1,13 @@
 ﻿using AddressBook_day9;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AddressBook_day9
-   
-    /// //Uc6 create multiple address book
-//creating object person from Contact class
-class AddressBook
-     {   
+
+     class AddressBook
+     {   //Uc7 avoid duplicate entry
+    //creating object person from Contact class
     public LinkedList<Contacts> personDetails = new LinkedList<Contacts>();
 
     //Creating a method for adding contacts in adrressbook
@@ -16,6 +16,12 @@ class AddressBook
         Contacts person = new Contacts();
         Console.WriteLine("Enter first name");
         person.firstName = Console.ReadLine();
+        bool existName = DuplicateEntryCheck(person.firstName);
+        if (existName)
+        {
+            Console.WriteLine("This contact already exist please add new entry");
+            AddPerson();
+        }
         Console.WriteLine("Enter last name");
         person.lastName = Console.ReadLine();
         Console.WriteLine("Enter address name");
@@ -27,10 +33,21 @@ class AddressBook
         Console.WriteLine("Enter zip name");
         person.zip = Console.ReadLine();
         Console.WriteLine("Enter phone number");
-        person.phoneNumber = Convert.ToInt32(Console.ReadLine());
+        person.phoneNumber =Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Enter email id");
         person.email = Console.ReadLine();
         personDetails.AddLast(person);
+    }
+
+    //Check and avoid duplicate entries 
+    public bool DuplicateEntryCheck(string Name)
+    {
+        //using lambda expression to check for firstname
+        bool found = personDetails.Any(e => (e.firstName.ToLower().Equals(Name.ToLower())));
+        if (found)
+            return true;
+        else
+            return false;
     }
 
     //Printing the address book details 
@@ -94,7 +111,7 @@ class AddressBook
                                 break;
                             case 3:
                                 Console.WriteLine("Enter the New Phone Number: ");
-                                person.phoneNumber =Convert.ToInt32(Console.ReadLine());
+                                person.phoneNumber = Console.ReadLine();
                                 break;
                             case 4:
                                 Console.WriteLine("Enter the New Address: ");
@@ -154,3 +171,5 @@ class AddressBook
         }
     }
 }
+}
+
