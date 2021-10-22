@@ -7,7 +7,7 @@ namespace AddressBook_day9
 {
 
     class AddressBook
-    {   //Uc9 view person by citylist and state list
+    {   //Uc9 view person by citylist and statelist
 
         public static Dictionary<string, List<AddressBook>> City = new Dictionary<string, List<AddressBook>>();
         public static Dictionary<string, List<AddressBook>> State = new Dictionary<string, List<AddressBook>>();
@@ -188,6 +188,23 @@ namespace AddressBook_day9
                         Console.WriteLine("The contact person {0}, belongs to {1} State", item.firstName, item.state);
                     }
                 }
+            }
+        }
+
+        //UC10 Get person by city or state by counting them
+        //displays the count based on cities and states
+        public void DisplayCount()
+        {
+            Console.WriteLine("Person details counts by city");
+            foreach (KeyValuePair<string, List<AddressBook>> kvp in City)
+            {
+                Console.WriteLine("The city {0} have {1} contacts", kvp.Key, kvp.Value.Count);
+            }
+
+            Console.WriteLine("Person details counts by state");
+            foreach (KeyValuePair<string, List<AddressBook>> kvp in State)
+            {
+                Console.WriteLine("The state {0} have {1} contacts", kvp.Key, kvp.Value.Count);
             }
         }
 

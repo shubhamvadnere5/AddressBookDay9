@@ -51,7 +51,7 @@ namespace AddressBook_day9
                 Console.WriteLine("Enter any key to continue");
                 Console.ReadLine();
             }
-            Console.WriteLine("Choose one operation to perform:\n 1-Edit a existing contact \n 2-Delete existing contact \n 3-View by city or state \n 4-Exit from the operation");
+            Console.WriteLine("Choose one operation to perform:\n 1-Edit a existing contact \n 2-Delete existing contact \n 3-View by city or state \n 4-Get persons counted by city or state \n 5-Exit from the operation");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -70,6 +70,11 @@ namespace AddressBook_day9
                     Console.WriteLine("Enter any key to continue");
                     break;
                 case 4:
+                    Console.WriteLine("Get number of person, count by city or state");
+                    person1.DisplayCount();
+                    Console.ReadLine();
+                    break;
+                case 5:
                     break;
                 default:
                     Console.WriteLine("Please enter a valid input");
@@ -78,3 +83,5 @@ namespace AddressBook_day9
         }
     }
 }
+
+
