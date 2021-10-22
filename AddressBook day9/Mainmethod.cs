@@ -8,9 +8,10 @@ namespace AddressBook_day9
 {
     class Mainmethod
     {
-       
         //Declaring a dictionary to store multiple contacts with the help of key
-        public static Dictionary<string, List<Contacts>> addressBook = new Dictionary<string, List<Contacts>>();
+        public static Dictionary<string, List<AddressBook>> addressBook = new Dictionary<string, List<AddressBook>>();
+        public static Dictionary<string, List<AddressBook>> City = new Dictionary<string, List<AddressBook>>();
+        public static Dictionary<string, List<AddressBook>> State = new Dictionary<string, List<AddressBook>>();
         //creating object person1 of AddressBook Class()
         public static AddressBook person1 = new AddressBook();
 
@@ -26,34 +27,11 @@ namespace AddressBook_day9
                 string bookName = Console.ReadLine();
                 Console.WriteLine("Enter the no of contacts you want to add in the address book: ");
                 int contactNum = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Choose one operation to perform:\n 1-Add a new contact \n 2-Edit a existing contact \n 3-Delete existing contact \n 4-Exit from the operation");
-                int option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
+                while (contactNum > 0)
                 {
-                    case 1:
-                        while (contactNum > 0)
-                        {
-                            Console.WriteLine("Enter the details of contact to be added: ");
-                            person1.AddPerson();
-                            contactNum -= 1;
-                            person1.Print();
-                        }
-                        break;
-                    case 2:
-                        person1.Edit();
-                        person1.Print();
-                        Console.WriteLine("Enter any key to continue");
-                        break;
-                    case 3:
-                        person1.Delete();
-                        person1.Print();
-                        Console.WriteLine("Enter any key to continue");
-                        break;
-                    case 4:
-                        break;
-                    default:
-                        Console.WriteLine("Please enter a valid input");
-                        break;
+                    Console.WriteLine("Enter the details of contact to be added: ");
+                    person1.AddPerson();
+                    contactNum -= 1;
                 }
                 //check if added address book is exist or not, using method of contains key, if not add that
                 if (addressBook.ContainsKey(bookName))
@@ -67,33 +45,36 @@ namespace AddressBook_day9
                 }
                 noOfBooks++;
             }
-            foreach (KeyValuePair<string, List<Contacts>> item in addressBook)
+            foreach (KeyValuePair<string, List<AddressBook>> item in addressBook)
             {
                 Console.WriteLine("Existing address books are {0}", item.Key);
                 Console.WriteLine("Enter any key to continue");
                 Console.ReadLine();
             }
-
-            //Search name based on city or state UC8
-            SearchCity();
-        }
-
-        //method for searching city in the multiple address book
-        public static void SearchCity()
-        {
-            Console.WriteLine("Search person based on city or state");
-            Console.WriteLine("Enter City or State");
-            string cityStateName = Console.ReadLine();
-            //using keyvalue to get value of the key.
-            foreach (KeyValuePair<string, List<Contacts>> kvp in addressBook)
+            Console.WriteLine("Choose one operation to perform:\n 1-Edit a existing contact \n 2-Delete existing contact \n 3-View by city or state \n 4-Exit from the operation");
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
             {
-                Console.WriteLine("The address Books is:{0}", kvp.Key);
-                Console.WriteLine("The Contact List from {0}", cityStateName);
-                person1.SearchbyCityorState(kvp.Value, cityStateName);
-                Console.ReadLine();
+                case 1:
+                    person1.Edit();
+                    Console.WriteLine("Enter any key to continue");
+                    break;
+                case 2:
+                    person1.Delete();
+                    Console.WriteLine("Enter any key to continue");
+                    break;
+                case 3:
+                    Console.WriteLine("Enter option to view person by city or state\n 1-To view City list\n 2-To view State list");
+                    int opt = Convert.ToInt32(Console.ReadLine());
+                    person1.ViewCityorState(opt);
+                    Console.WriteLine("Enter any key to continue");
+                    break;
+                case 4:
+                    break;
+                default:
+                    Console.WriteLine("Please enter a valid input");
+                    break;
             }
         }
     }
 }
-
-
