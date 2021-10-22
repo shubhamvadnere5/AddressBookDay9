@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook_day9
 {
-    /// <summary>
-    /// UC1 Create Contact
-    /// </summary>
+    
     class Contacts
     {
         public string firstName;
