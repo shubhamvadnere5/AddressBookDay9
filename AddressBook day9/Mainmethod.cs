@@ -52,7 +52,7 @@ namespace AddressBook_day9
                 Console.WriteLine("Enter any key to continue");
                 Console.ReadLine();
             }
-            Console.WriteLine("Choose one operation to perform:\n 1-Edit a existing contact \n 2-Delete existing contact \n 3-View by city or state \n 4-Get persons counted by city or state \n 5-Sort the address book alphabatically \n 6-Exit from the operation");
+            Console.WriteLine("Choose one operation to perform:\n 1-Edit a existing contact \n 2-Delete existing contact \n 3-View by city or state \n 4-Get persons counted by city or state \n 5-Sort the address book alphabatically \n 6-Sorting based on city \n 7-Sorting based on state \n 8-Sorting based on Zip code \n 9-Exit from the operation");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -81,6 +81,21 @@ namespace AddressBook_day9
                     Console.ReadLine();
                     break;
                 case 6:
+                    Console.WriteLine("Sorting the address book bsed on city name");
+                    person1.SortingBasedOnCity(addressBook);
+                    Console.ReadLine();
+                    break;
+                case 7:
+                    Console.WriteLine("Sorting the address book based on state name");
+                    person1.SortingBasedOnState(addressBook);
+                    Console.ReadLine();
+                    break;
+                case 8:
+                    Console.WriteLine("Sorting the address book based on zip code");
+                    person1.SortingBasedOnZip(addressBook);
+                    Console.ReadLine();
+                    break;
+                case 9:
                     break;
                 default:
                     Console.WriteLine("Please enter a valid input");
@@ -89,7 +104,3 @@ namespace AddressBook_day9
         }
     }
 }
-
-
-
-

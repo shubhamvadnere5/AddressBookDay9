@@ -7,7 +7,7 @@ namespace AddressBook_day9
 {
 
     class AddressBook
-    {   //Uc11 sorted entry Alphabetically
+    {   //Uc12 Sorting based on city or state or zip code
 
         public static Dictionary<string, List<AddressBook>> City = new Dictionary<string, List<AddressBook>>();
         public static Dictionary<string, List<AddressBook>> State = new Dictionary<string, List<AddressBook>>();
@@ -225,6 +225,58 @@ namespace AddressBook_day9
                 {
                     Console.WriteLine(member.ToString());
                 }
+            }
+        }
+
+        //UC12-sorting the address book based on city name
+        public void SortingBasedOnCity(Dictionary<string, List<AddressBook>> addressbooknames)
+        {
+            foreach (KeyValuePair<string, List<AddressBook>> kvp in addressbooknames)
+            {
+                Console.WriteLine("The contacts sorted based on city name in address book {0}", kvp.Key);
+                List<AddressBook> newMembers = new List<AddressBook>();
+                foreach (var member in kvp.Value)
+                {
+                    newMembers.Add(member);
+                }
+                List<AddressBook> members = newMembers.OrderBy(x => x.city).ToList();
+                foreach (var mem in members)
+                {
+                    Console.WriteLine(mem.ToString());
+                }
+            }
+        }
+        //Sorting based on State 
+        public void SortingBasedOnState(Dictionary<string, List<AddressBook>> addressbooknames)
+        {
+            foreach (KeyValuePair<string, List<AddressBook>> kvp in addressbooknames)
+            {
+                Console.WriteLine("The contacts sorted based on state in address book {0}", kvp.Key);
+                List<AddressBook> newMembers = new List<AddressBook>();
+                foreach (var member in kvp.Value)
+                {
+                    newMembers.Add(member);
+                }
+                List<AddressBook> members = newMembers.OrderBy(x => x.state).ToList();
+                foreach (var mem in members)
+                    Console.WriteLine(mem.ToString());
+            }
+        }
+
+        //Sorting based on zipcode
+        public void SortingBasedOnZip(Dictionary<string, List<AddressBook>> addressbooknames)
+        {
+            foreach (KeyValuePair<string, List<AddressBook>> kvp in addressbooknames)
+            {
+                Console.WriteLine("The contacts sorted based on zip code in address book {0}", kvp.Key);
+                List<AddressBook> newMembers = new List<AddressBook>();
+                foreach (var member in kvp.Value)
+                {
+                    newMembers.Add(member);
+                }
+                List<AddressBook> members = newMembers.OrderBy(x => x.zipCode).ToList();
+                foreach (var mem in members)
+                    Console.WriteLine(mem.ToString());
             }
         }
 
