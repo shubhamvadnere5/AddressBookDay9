@@ -7,7 +7,7 @@ namespace AddressBook_day9
 {
 
     class AddressBook
-    {   //Uc9 view person by citylist and statelist
+    {   //Uc11 sorted entry Alphabetically
 
         public static Dictionary<string, List<AddressBook>> City = new Dictionary<string, List<AddressBook>>();
         public static Dictionary<string, List<AddressBook>> State = new Dictionary<string, List<AddressBook>>();
@@ -208,6 +208,26 @@ namespace AddressBook_day9
             }
         }
 
+        //UC11-Sort the contact details in address book alphabatically
+        public void SortingContactAlphabatically(Dictionary<string, List<AddressBook>> addressBook)
+        {
+            foreach (KeyValuePair<string, List<AddressBook>> kvp in addressBook)
+            {
+                Console.WriteLine("The contacts sorted alphatically in address book {0}", kvp.Key);
+                List<AddressBook> list = new List<AddressBook>();
+                foreach (var member in kvp.Value)
+                {
+                    list.Add(member);
+                }
+                //Using Lambda exp to sort it by first name alphabatically
+                List<AddressBook> members = list.OrderBy(x => x.firstName).ToList();
+                foreach (var member in members)
+                {
+                    Console.WriteLine(member.ToString());
+                }
+            }
+        }
+
         //creating method for editing existing contact in address book
         public void Edit()
         {
@@ -311,3 +331,4 @@ namespace AddressBook_day9
         }
     }
 }
+
